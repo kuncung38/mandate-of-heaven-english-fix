@@ -1,0 +1,9 @@
+node_modules/
+*.zip
+*.pack
+*.pack.original
+app.asar
+app.asar.original
+extracted_app/
+.DS_Store
+Thumbs.db
