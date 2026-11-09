@@ -40,14 +40,17 @@ for %%I in (0 1 2 3 4 5 6 7) do (
 )
 
 echo.
-echo 2. Installing patched English engine & video overlays...
+echo 2. Installing patched English engine & native libraries...
 copy /y "%~dp0resources\app.asar" "resources\app.asar" >nul
 if %errorlevel% neq 0 (
     echo [ERROR] Failed to overwrite resources\app.asar. Is the game running?
     pause
     exit /b 1
 )
-echo   [OK] resources\app.asar installed successfully.
+if exist "%~dp0resources\app.asar.unpacked" (
+    xcopy /y /e /i /q "%~dp0resources\app.asar.unpacked" "resources\app.asar.unpacked" >nul
+)
+echo   [OK] resources\app.asar and native libraries installed successfully.
 
 echo.
 echo 3. Installing optimized English subtitle packs...
