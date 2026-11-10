@@ -1,7 +1,7 @@
 # Mandate of Heaven (江山北望) — Complete English Fix Mod
 
 [![Game Version](https://img.shields.io/badge/Game%20Version-v2.0.2-blue.svg)](https://store.steampowered.com/app/3831120/)
-[![Mod Version](https://img.shields.io/badge/Mod%20Version-v2.0.2.1-brightgreen.svg)](https://github.com/kuncung38/mandate-of-heaven-english-fix/releases)
+[![Mod Version](https://img.shields.io/badge/Mod%20Version-v2.0.2.2-brightgreen.svg)](https://github.com/kuncung38/mandate-of-heaven-english-fix/releases)
 [![Steam App ID](https://img.shields.io/badge/Steam%20App%20ID-3831120-orange.svg)](https://store.steampowered.com/app/3831120/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -79,6 +79,10 @@ A comprehensive, zero-overhead localization and engine fix mod for ***Mandate of
 ### 13. 🏁 Chapter Conclusion Title Card Fix (`ui.ending`)
 * **Official Bug:** On chapter completion, the screen displayed the raw missing translation key `"ui.ending"`.
 * **Our Fix:** Added `ending: "THE END"` to the locale dictionary and added a resilient fallback in `screen-sleep`. Displays **`THE END`** cleanly.
+
+### 14. 📜 Silent On-Screen Intermission Cards & Bad Ending Epilogues Subtitled
+* **Official Bug:** In silent video scenes with on-screen parchment calligraphy (such as historical time jumps, plot bridges, and Bad Ending epilogues), the developers had no spoken dialogue and therefore provided **zero subtitle cues** in the official English release. Non-Chinese players were left staring at untranslated Chinese text cards with no idea what transpired (e.g. Prince Ning's engagement and wedding banquet drugging time-jump, or exile and assassination epilogues).
+* **Our Fix:** Added accurate, contextually timed English subtitle cues across intermission scenes and Bad Ending epilogues (e.g. `01_021_005B`, `01_028_007A021_BE001`, `01_053_012A`, `01_056_047048_BE003`, `01_070_015C_BE006`, `01_075_064_BE007`, `01_079_057_BE004`). All critical historical narrative text is now fully readable and timed directly to the on-screen parchment transitions.
 
 ---
 

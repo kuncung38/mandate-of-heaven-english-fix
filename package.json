@@ -1,7 +1,7 @@
 {
   "name": "mandate-of-heaven-english-fix",
-  "version": "2.0.2.1",
-  "description": "Comprehensive English localization, choice engine fix, video overlay translation, subtitle pacing, layout bounds, and storyline fixes for Mandate of Heaven (江山北望) v2.0.2",
+  "version": "2.0.2.2",
+  "description": "Comprehensive English localization, choice engine fix, video overlay translation, subtitle pacing, layout bounds, intermission narrative subtitles, and storyline fixes for Mandate of Heaven (江山北望) v2.0.2",
   "author": "kuncung38",
   "license": "MIT",
   "scripts": {
