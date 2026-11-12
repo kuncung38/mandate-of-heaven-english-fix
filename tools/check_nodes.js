@@ -1,10 +1,13 @@
 const fs = require('fs');
-const content = fs.readFileSync('resources/extracted_app/renderer/main_window/assets/navigation-DQdXAQm4.js', 'utf8');
+const path = require('path');
+const dir = 'resources/extracted_app/renderer/main_window/assets';
 
-let idx = 0;
-while ((idx = content.indexOf('a01_a048', idx)) !== -1) {
-  console.log('Index:', idx);
-  // Show 100 characters before and after
-  console.log(content.slice(Math.max(0, idx - 50), idx + 100));
-  idx += 8;
+for (const file of fs.readdirSync(dir)) {
+  if (file.endsWith('.js')) {
+    const content = fs.readFileSync(path.join(dir, file), 'utf8');
+    const count = (content.match(/a01_a048/g) || []).length;
+    if (count > 0) {
+      console.log(`${file}: ${count} matches of a01_a048`);
+    }
+  }
 }
