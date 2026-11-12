@@ -1,7 +1,7 @@
 # Mandate of Heaven (江山北望) — Complete English Fix Mod
 
 [![Game Version](https://img.shields.io/badge/Game%20Version-v2.0.2-blue.svg)](https://store.steampowered.com/app/3831120/)
-[![Mod Version](https://img.shields.io/badge/Mod%20Version-v2.0.3.0-brightgreen.svg)](https://github.com/kuncung38/mandate-of-heaven-english-fix/releases)
+[![Mod Version](https://img.shields.io/badge/Mod%20Version-v2.0.4.0-brightgreen.svg)](https://github.com/kuncung38/mandate-of-heaven-english-fix/releases)
 [![Steam App ID](https://img.shields.io/badge/Steam%20App%20ID-3831120-orange.svg)](https://store.steampowered.com/app/3831120/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -80,9 +80,13 @@ A comprehensive, zero-overhead localization and engine fix mod for ***Mandate of
 * **Official Bug:** On chapter completion, the screen displayed the raw missing translation key `"ui.ending"`.
 * **Our Fix:** Added `ending: "THE END"` to the locale dictionary and added a resilient fallback in `screen-sleep`. Displays **`THE END`** cleanly.
 
-### 14. 📜 Complete On-Screen Calligraphy Cards & Bad Ending Epilogues Subtitled (All Chapters 0–7)
-* **Official Bug:** In silent video scenes featuring on-screen parchment calligraphy (such as historical time jumps, narrative bridges, and Bad Ending epilogues), the developers provided **zero subtitle cues** in the official English release. Non-Chinese players were left staring at untranslated Chinese text cards with no idea what transpired (e.g. Prince Ning's engagement and wedding banquet drugging time-jump, court trials, battle aftermaths, or exile and assassination epilogues).
-* **Our Fix:** Conducted a comprehensive scan and frame analysis across all 8 chapters (0 through 7) to identify and transcribe all **62 on-screen historical calligraphy narration cards and Bad Ending epilogues** across the game. Each text card is translated into elegant, period-appropriate historical English and provided with second-accurate WebVTT subtitle cues timed precisely to parchment fade-in and fade-out transitions with zero dialogue bleed.
+### 14. 📜 Complete On-Screen Mandarin Video Text, Overlays & Trial Aftermath Subtitled (All Chapters 0–7) [v2.0.4.0]
+* **Official Bug:** In cinematic video scenes featuring burned-in Mandarin Chinese text (such as court trial aftermaths, parchment calligraphy narrative bridges, live-action white serif narration overlays, imperial temple title cards, and Bad Ending epilogues), the developers provided **zero subtitle cues** in the official English release. Non-Chinese players were left watching scenes with untranslated Chinese text and no subtitles (for example, the prison cell trial outcome in `01_078_066.mp4`, Consort Xie's tragic poisoning epilogue in `01_054_012B053054.mp4`, siege summaries, or imperial posthumous title reveals).
+* **Our Fix:** Designed and executed an automated computer vision scanning engine across all **481 non-loop cinematic videos** spanning Chapters 0 through 7:
+  * Extracted and analyzed 4,882 candidate frames via headless CDP and algorithmic stroke regularity filters.
+  * Cataloged and subtitled all **92 on-screen Chinese text events** (72 Calligraphy Cards, 8 Live-Action White Text Overlays, and 12 Imperial Title & Ending Achievement Cards).
+  * Injected and refined cues across **615 WebVTT files (9,913 total cues)** with period-accurate, literary English translations.
+  * Clamped all cues to maintain a guaranteed **$\ge 80\text{ ms}$ separation buffer** from adjacent spoken dialogue to eliminate subtitle clipping and visual overlap in the Video.js player.
 
 ---
 
