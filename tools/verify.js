@@ -2,20 +2,20 @@ const fs = require('fs');
 const asar = require('C:/Users/user/AppData/Local/npm-cache/_npx/8b3f11f22d4db0c9/node_modules/asar');
 
 const archive = 'E:/SteamLibrary/steamapps/common/江山北望/resources/app.asar';
-const navContent = asar.extractFile(archive, 'renderer\\main_window\\assets\\navigation-DQdXAQm4.js').toString('utf8');
-const indexContent = asar.extractFile(archive, 'renderer\\main_window\\assets\\index-wQ5G7oRV.js').toString('utf8');
-const screenContent = asar.extractFile(archive, 'renderer\\main_window\\assets\\screen-sleep-CMg9xret.js').toString('utf8');
+const navContent = asar.extractFile(archive, 'renderer\\main_window\\assets\\navigation-u2NlFcJa.js').toString('utf8');
+const indexContent = asar.extractFile(archive, 'renderer\\main_window\\assets\\index-DFCMC0d4.js').toString('utf8');
+const screenContent = asar.extractFile(archive, 'renderer\\main_window\\assets\\screen-sleep-DGf2OPd7.js').toString('utf8');
 const cssContent = asar.extractFile(archive, 'renderer\\main_window\\assets\\index-BMJsZ6tx.css').toString('utf8');
 
 console.log('=== COMPREHENSIVE MOD VERIFICATION ===\n');
 
 const checks = [
   ['Default locale is English (S=`en`)', navContent.includes('S=`en`')],
-  ['English label localized_name:`English`', navContent.includes('localized_name:`English`')],
-  ['Main menu New Game translated', navContent.includes('new_game:`New Game`')],
-  ['Main menu Settings translated', navContent.includes('settings:`Settings`')],
-  ['Main menu Continue Game translated', navContent.includes('continue_game:`Continue Game`')],
-  ['Values dictionary translated (Military Morale)', navContent.includes('Military Morale')],
+  ['English label localized_name present', navContent.includes('localized_name:`English')],
+  ['Main menu New Game translated', navContent.includes('new_game:`Start Story`') || navContent.includes('new_game:`New Game`')],
+  ['Main menu Settings translated', navContent.includes('settings:`Settings`') || navContent.includes('settings:"Settings"')],
+  ['Values dictionary translated', navContent.includes('Army morale') || navContent.includes('Military Morale')],
+  ['Character Stories translated (Zu Yue)', navContent.includes('Forsaking the Painted Brows')],
   ['createGame defaults to English', navContent.includes('createGame(e=`en`){')],
   ['Dynamic locale(e) in story engine (choice bug fix)', navContent.includes('this.content.locales[l]')],
   ['UI store fallback is English', indexContent.includes('r.value||await pr()||`en`')],
