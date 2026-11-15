@@ -1,7 +1,7 @@
 # Mandate of Heaven (江山北望) — Complete English Fix Mod
 
 [![Game Version](https://img.shields.io/badge/Game%20Version-v2.0.2-blue.svg)](https://store.steampowered.com/app/3831120/)
-[![Mod Version](https://img.shields.io/badge/Mod%20Version-v2.0.4.0-brightgreen.svg)](https://github.com/kuncung38/mandate-of-heaven-english-fix/releases)
+[![Mod Version](https://img.shields.io/badge/Mod%20Version-v2.0.5.0-brightgreen.svg)](https://github.com/kuncung38/mandate-of-heaven-english-fix/releases)
 [![Steam App ID](https://img.shields.io/badge/Steam%20App%20ID-3831120-orange.svg)](https://store.steampowered.com/app/3831120/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -87,6 +87,27 @@ A comprehensive, zero-overhead localization and engine fix mod for ***Mandate of
   * Cataloged and subtitled all **92 on-screen Chinese text events** (72 Calligraphy Cards, 8 Live-Action White Text Overlays, and 12 Imperial Title & Ending Achievement Cards).
   * Injected and refined cues across **615 WebVTT files (9,913 total cues)** with period-accurate, literary English translations.
   * Clamped all cues to maintain a guaranteed **$\ge 80\text{ ms}$ separation buffer** from adjacent spoken dialogue to eliminate subtitle clipping and visual overlap in the Video.js player.
+
+### 15. 🎭 Full Character Stories & Profiles English Localization (All 24 Stories Across 13 Characters + Murong Cui) [v2.0.5.0]
+* **Official Bug:** On the in-game Character Dossier screen (`PortfolioView` / `CharacterView`), while character bios and names were translated into English, all **24 unlockable Character Stories** across 13 major characters and the entire profile for **Murong Cui (慕容崔)** were omitted from the English dictionary (`me.portfolios`), causing `vue-i18n` to fall back to raw Chinese text. For example, General Zu Yue's signature story *不画峨眉* (*Forsaking the Painted Brows*) and *安能折腰* (*How Could She Bend*) displayed in multi-paragraph Chinese prose even when English was selected.
+* **Our Fix:**
+  * Fully translated all 24 Character Stories and the Murong Cui character profile into period-accurate, literary English capturing the nuances of the imperial court and northern frontier.
+  * Injected the complete story and profile hierarchy into both modern (`navigation-u2NlFcJa.js`) and legacy (`navigation-legacy-ByshlEeU.js`) Vue i18n dictionaries in `resources/app.asar`.
+  * Verified 100% key parity with the default Chinese dictionary so that every character story renders seamlessly in English:
+    * **Zu Yue (祖月):** *Forsaking the Painted Brows*, *How Could She Bend*
+    * **Liu Nian (刘念):** *Long Notes of the Flute*, *No Home of Mine*
+    * **Sikong Xu (司空旭):** *The Cycle of History*, *The Favored Pavilion*
+    * **Sikong Jing (司空景):** *Undercurrents*
+    * **Sikong Zheng (司空正):** *Deep Night*, *Winds of Tumult*
+    * **Sikong Sheng (司空盛):** *A Solitary Vessel*, *Candlelight in the Dark*
+    * **Sikong Yu (司空钰):** *Through the Ages*, *The Golden Branch*
+    * **Zhu Yuanzhi (朱元之):** *Lone Wolf*, *Pack of Jackals*
+    * **Chu Huan (楚桓):** *Bones in Green Hills, Name in Eternity*
+    * **Xie Jian'an (谢建安):** *Sovereign and Subject Estranged*, *Decisive Severance*
+    * **Xie Xuan (谢玄):** *A Noble Shuns the Falling Wall*, *Youth in Silken Robes and Spirited Steeds*
+    * **Xie Ruolan (谢若兰):** *Beyond the Passing Days*, *One Moon Across a Thousand Leagues*
+    * **Chen Wan'er (陈婉儿):** *Awaiting the Approaching Storm*, *Tainted by the Mire*
+    * **Murong Cui (慕容崔):** Profile bio and name
 
 ---
 
