@@ -6,6 +6,7 @@ const navContent = asar.extractFile(archive, 'renderer\\main_window\\assets\\nav
 const indexContent = asar.extractFile(archive, 'renderer\\main_window\\assets\\index-DFCMC0d4.js').toString('utf8');
 const screenContent = asar.extractFile(archive, 'renderer\\main_window\\assets\\screen-sleep-DGf2OPd7.js').toString('utf8');
 const cssContent = asar.extractFile(archive, 'renderer\\main_window\\assets\\index-BMJsZ6tx.css').toString('utf8');
+const sleepCssContent = asar.extractFile(archive, 'renderer\\main_window\\assets\\screen-sleep-BKulXwMY.css').toString('utf8');
 
 console.log('=== COMPREHENSIVE MOD VERIFICATION ===\n');
 
@@ -25,7 +26,9 @@ const checks = [
   ['Overlay trust/morale Oe dynamic translation', screenContent.includes("Emperor's Trust")],
   ['QTE Tap button translated', screenContent.includes('pe.global.locale.value===`en`?`Tap`:`点击`')],
   ['QTE Hold button translated', screenContent.includes('pe.global.locale.value===`en`?`Hold`:`长按`')],
-  ['High contrast subtitle CSS styling applied', cssContent.includes('Enhanced Subtitle Readability for English')]
+  ['High contrast subtitle CSS styling applied', cssContent.includes('Enhanced Subtitle Readability for English')],
+  ['Choice button responsive scaling applied', sleepCssContent.includes('font-size:calc(21px')],
+  ['Choice button coordinates centered', screenContent.includes('{x:48,y:80},{x:52,y:80}')]
 ];
 
 let passed = 0;
