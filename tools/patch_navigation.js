@@ -36,7 +36,7 @@ const englishUI = {
   privacy_policy: "Privacy Policy",
   pause: "Pause",
   play: "Play",
-  portfolios: "Character Files",
+  portfolios: "Character Profiles",
   progress_bar: "Progress",
   resource_download_aria_label: "Resource Download",
   resource_download_calculating: "Calculating...",
