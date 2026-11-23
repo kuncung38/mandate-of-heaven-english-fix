@@ -9,7 +9,13 @@ function patchNavigationFile(filePath) {
     console.log(`Skipping non-existent file: ${filePath}`);
     return;
   }
-  const content = fs.readFileSync(filePath, 'utf8');
+  let content = fs.readFileSync(filePath, 'utf8');
+
+  // Replace Portfolios menu button with Biographies
+  content = content.replace(/portfolios:\s*[`"]Portfolios[`"]/g, (match) => {
+    return match.includes('`') ? 'portfolios:`Biographies`' : 'portfolios:"Biographies"';
+  });
+
   const pos = content.indexOf('portfolios:JSON.parse(');
   if (pos === -1) {
     console.log(`portfolios:JSON.parse( not found in ${filePath}`);
@@ -41,15 +47,15 @@ function patchNavigationFile(filePath) {
   const patchedContent = content.slice(0, parseIdx) + newSnippet + content.slice(endIdx + 1);
 
   fs.writeFileSync(filePath, patchedContent, 'utf8');
-  console.log(`Successfully patched portfolios in ${filePath}`);
+  console.log(`Successfully patched portfolios and stories in ${filePath}`);
 }
 
 module.exports = { patchNavigationFile };
 
 if (require.main === module) {
   const targetDir = process.argv[2] || '.';
-  const file1 = path.join(targetDir, 'renderer/main_window/assets/navigation-u2NlFcJa.js');
-  const file2 = path.join(targetDir, 'renderer/main_window/assets/navigation-legacy-ByshlEeU.js');
+  const file1 = path.join(targetDir, 'renderer/main_window/assets/navigation-DQdXAQm4.js');
+  const file2 = path.join(targetDir, 'renderer/main_window/assets/navigation-legacy-CtiewUfA.js');
   patchNavigationFile(file1);
   patchNavigationFile(file2);
 }
