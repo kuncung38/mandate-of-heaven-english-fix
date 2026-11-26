@@ -1,9 +1,29 @@
 {
   "name": "mandate-of-heaven-english-fix",
-  "version": "2.0.5.0",
-  "description": "Comprehensive English localization, choice engine fix, character stories & dossiers, video overlay translation, subtitle pacing, layout bounds, all 92 video calligraphy & narrative text overlay subtitles (Ch 0-7), and storyline fixes for Mandate of Heaven (江山北望) v2.0.2",
+  "version": "2.1.0",
+  "description": "Complete English localization patch, missing subtitle restorer (615 VTTs across Ch 0-7), flowchart logic fix, and 100% achievement/ending compatibility mod for Mandate of Heaven (江山北望 / Jiangshan Beiwang, Steam App 3831120) on Windows, macOS, and Linux.",
   "author": "kuncung38",
   "license": "MIT",
+  "homepage": "https://github.com/kuncung38/mandate-of-heaven-english-fix",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kuncung38/mandate-of-heaven-english-fix.git"
+  },
+  "keywords": [
+    "mandate-of-heaven",
+    "jiangshan-beiwang",
+    "江山北望",
+    "english-patch",
+    "english-subtitles",
+    "localization-mod",
+    "flowchart-fix",
+    "steam-3831120",
+    "fmv-game",
+    "visual-novel",
+    "macos",
+    "linux",
+    "steam-deck"
+  ],
   "scripts": {
     "build": "node tools/build.js",
     "verify": "node tools/verify.js"

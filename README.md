@@ -1,11 +1,14 @@
-# Mandate of Heaven (江山北望) — Complete English Fix Mod
+# Mandate of Heaven (江山北望 / Jiangshan Beiwang) — Complete English Patch, Subtitle & Flowchart Fix Mod
 
 [![Game Version](https://img.shields.io/badge/Game%20Version-v2.0.2-blue.svg)](https://store.steampowered.com/app/3831120/)
-[![Mod Version](https://img.shields.io/badge/Mod%20Version-v2.0.5.0-brightgreen.svg)](https://github.com/kuncung38/mandate-of-heaven-english-fix/releases)
+[![Mod Version](https://img.shields.io/badge/Mod%20Version-v2.1.0-brightgreen.svg)](https://github.com/kuncung38/mandate-of-heaven-english-fix/releases)
+[![Platforms](https://img.shields.io/badge/Platforms-Windows%20%7C%20macOS%20%7C%20Linux%20%2F%20Steam%20Deck-lightgrey.svg)](#installation)
 [![Steam App ID](https://img.shields.io/badge/Steam%20App%20ID-3831120-orange.svg)](https://store.steampowered.com/app/3831120/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-A comprehensive, zero-overhead localization and engine fix mod for ***Mandate of Heaven*** (《江山北望》), resolving all major English release bugs, untranslated Chinese overlays, broken choice engines, unreadable subtitles, and layout glitches.
+The complete **English translation patch, missing subtitle restorer, and story flowchart bug-fix mod** for ***Mandate of Heaven*** (《江山北望》 / *Jiangshan Beiwang*, Steam App `3831120`) on **Windows, macOS (Apple Silicon & Intel), and Linux / Steam Deck**.
+
+Tested end-to-end across **all 8 chapters (Chapters 0–7)**, **613 videos**, **615 WebVTT subtitle files**, **49 Bad Endings**, and **all 10 Main Dynastic Endings** to **100% completion and 100% Steam achievements**.
 
 ---
 
@@ -109,35 +112,58 @@ A comprehensive, zero-overhead localization and engine fix mod for ***Mandate of
     * **Chen Wan'er (陈婉儿):** *Awaiting the Approaching Storm*, *Tainted by the Mire*
     * **Murong Cui (慕容崔):** Profile bio and name
 
+### 16. 🧭 Flowchart Variable Sanitizer & 100% Ending / Achievement Fix [v2.1.0]
+* **Official Bug:** Ghost `value_changed` lines left behind before `storylet_start` caused `value_check` to miscalculate imperial reform/ending variables, jumping players to the wrong ending or blocking 100% route completion.
+* **Our Fix:**
+  * Added a universal `value_check` sanitizer across both modern and legacy bundles so variable checks only evaluate lines from the active playthrough (`storylet_start` onward).
+  * Preserved all original narrative consequences (e.g., sending the real princess vs. the maid princess in Chapter 6).
+  * Fixed Chapter 7's corrupted `07_059_010B.vtt` (official build had an invalid `s\nWEBVTT` header and mismatched Xie Ruolan dialogue instead of Liu Nian's lines) and clamped all 615 VTT cues across Chapters 0–7 to exact `.mp4` durations.
+
 ---
 
 ## 🚀 Installation
 
-### Option A: 1-Click Installer (Recommended)
-1. Download `English_Fix_Mod.zip` from the [Releases](https://github.com/kuncung38/mandate-of-heaven-english-fix/releases) tab.
+### Windows (1-Click Installer — Recommended)
+1. Download `English_Fix_Mod.zip` from the [Releases](https://github.com/kuncung38/mandate-of-heaven-english-fix/releases) tab (or clone this repository).
 2. Extract the archive directly into your game directory:
-   ```
+   ```text
    Steam\steamapps\common\江山北望\
    ```
-3. Run `install.bat`. It will automatically back up your original files and apply the mod.
-4. Launch the game from Steam and enjoy!
+3. Run `install.bat`. It automatically backs up your original files (`.original`), installs the patched `app.asar`, and deploys all 8 `chapter*_en.pack` files.
+4. Launch the game from Steam — it boots directly into English.
 
-### Option B: Manual Installation
-1. Copy the 8 `chapter*_en.pack` files into your game root directory:
+### macOS & Linux / Steam Deck (`install.sh`)
+1. Extract the mod folder into your game directory:
+   * **Linux / Steam Deck:** `~/.steam/steam/steamapps/common/江山北望/`
+   * **macOS:** `~/Library/Application Support/Steam/steamapps/common/江山北望/`
+2. Open Terminal in the mod folder and run:
+   ```bash
+   chmod +x install.sh uninstall.sh && ./install.sh
    ```
-   Steam\steamapps\common\江山北望\
-   ```
-2. Copy `resources\app.asar` and `resources\app.asar.unpacked` into:
-   ```
-   Steam\steamapps\common\江山北望\resources\
-   ```
+   The installer automatically detects both standard `resources/` layouts and macOS `.app/Contents/Resources/` bundles, and includes native `linux64` and `osx` (`arm64` / `x64`) libraries.
+
+### Manual Installation
+1. Copy all 8 `chapter0_en.pack` through `chapter7_en.pack` files into your game root directory (or `Contents/Resources/` on macOS).
+2. Copy `resources\app.asar` and `resources\app.asar.unpacked` into your game's `resources\` directory.
+
+---
+
+## ❓ Troubleshooting & FAQ
+
+* **My mod stopped working after a Steam game update!**
+  Whenever Steam pushes an official patch, it overwrites `resources/app.asar` and `chapter*_en.pack`. Simply re-run `install.bat` (Windows) or `./install.sh` (macOS/Linux) to reapply all fixes cleanly.
+* **Subtitles aren't showing up in a scene after installing while the game was open.**
+  Electron memory-maps `.pack` archives at startup. Fully close `江山北望.exe` and relaunch it from Steam so the updated subtitle packs load.
+* **Can I still unlock all Steam achievements with this mod?**
+  Yes — native Steamworks (`steamworks.js`) and TapSDK binaries are preserved across Windows, macOS, and Linux, and all 100% achievements have been verified in-game.
 
 ---
 
 ## 🔄 Uninstallation
 
-Double-click `uninstall.bat` inside your game folder to restore all `.original` backup files, or verify file integrity via Steam:
-* Steam Library $\rightarrow$ Right Click **Mandate of Heaven** $\rightarrow$ **Properties** $\rightarrow$ **Installed Files** $\rightarrow$ **"Verify integrity of game files"**.
+* **Windows:** Double-click `uninstall.bat` inside your game folder to restore all `.original` backup files.
+* **macOS / Linux:** Run `./uninstall.sh`.
+* **Steam:** Right-click **Mandate of Heaven** $\rightarrow$ **Properties** $\rightarrow$ **Installed Files** $\rightarrow$ **"Verify integrity of game files"**.
 
 ---
 
