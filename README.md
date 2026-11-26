@@ -166,6 +166,14 @@ Test Results:
 
 ---
 
+## ❤️ Support
+
+If this mod improved your *Mandate of Heaven* experience, you can support my work here:
+* **International (PayPal / Card / Apple Pay / Google Pay):** [SociaBuzz](https://sociabuzz.com/kuncung38/tribe)
+* **Indonesia (QRIS / GoPay / OVO / DANA):** [Saweria](https://saweria.co/kuncung38)
+
+---
+
 ## 📜 License
 
 This project is licensed under the [MIT License](LICENSE). Game assets and original dialogue remain the intellectual property of their respective creators.
